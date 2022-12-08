@@ -1,0 +1,13 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(42, 44, 63);
+  width: 100vw;
+  height: 100vh;
+}
+
+.loading span {
+  font-size: 500px;
+  color: rgb(119, 246, 255);
+}

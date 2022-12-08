@@ -6,14 +6,28 @@ function Movie({ id, coverImg, title, summary, genres }) {
   return (
     <div className={styles.content}>
       <div className={styles.content__column}>
-        <img src={coverImg} alt={title} />
+        <Link to={`/movie/${id}`}>
+          <img src={coverImg} alt={title} />
+        </Link>
       </div>
       <div className={styles.content__column}>
-        <h2>
-          <Link to={`/movie/${id}`}>{title}</Link>
+        <h2 className={styles.content__column__title}>
+          <Link
+            className={styles.content__column__title__link}
+            to={`/movie/${id}`}
+          >
+            {title}
+          </Link>
         </h2>
         <p className={styles.content__column__summary}>{summary}</p>
-        <ul>{genres && genres.map((g) => <li key={g}>{g}</li>)}</ul>
+        <div className={styles.content__column__genres}>
+          {genres &&
+            genres.map((g) => (
+              <span className={styles.content__column__g} key={g}>
+                {g}
+              </span>
+            ))}
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import Movie from "../componets/Movie";
+import Loading from "../componets/Loading";
 import styles from "./Home.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faReact } from "@fortawesome/free-brands-svg-icons";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -18,11 +21,16 @@ function Home() {
   }, []);
   console.log(movies);
   return (
-    <div>
+    <div className="container">
       {loading ? (
-        <h1>Loading...</h1>
+        <Loading />
       ) : (
         <div className={styles.main}>
+          <div className={styles.title}>
+            {/* <FontAwesomeIcon icon="fa-brands fa-react" /> */}
+            <FontAwesomeIcon icon={faReact} />
+            <span> React Basic</span>
+          </div>
           {movies.map((movie) => (
             <Movie
               id={movie.id}
